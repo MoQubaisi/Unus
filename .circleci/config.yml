@@ -11,7 +11,7 @@ jobs:
           name: "save output"
           command: "echo Mother Fucker > output.txt"
       - persist_to_workspace:
-          root: /tmp/workspace
+          root: workspace
           paths:
             - output.txt
             
