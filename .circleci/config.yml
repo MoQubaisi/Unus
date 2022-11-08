@@ -11,7 +11,7 @@ jobs:
           name: "save output"
           command: "echo Mother Fucker > output.txt"
       - persist_to_workspace:
-          root: workspace
+          root: ~/
           paths:
             - output.txt
             
@@ -22,10 +22,10 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /tmp/workspace
+          at: ~/
       - run:
           name: "print imported info"
-          command: "echo  hello $(<output.txt)!"
+          command: "cat  ~/output.txt"
 
 workflows:
   say-hello-workflow:
