@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run:
           name: "save output"
-          command: "echo Mother Fucker > output.txt"
+          command: "echo Mother Fucker > ~/output.txt"
       - persist_to_workspace:
           root: ~/
           paths:
