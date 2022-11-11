@@ -20,7 +20,7 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello"
-      - fuck-you:
+      - print_pipeline_id:
           to: $CIRCLE_WORKFLOW_ID
 
 workflows:
