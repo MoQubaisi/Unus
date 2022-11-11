@@ -1,0 +1,35 @@
+
+version: 2.1
+
+jobs:
+  save_hello_world_output:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - run:
+          name: "save output"
+          command: "echo Mother Fucker > ~/output.txt"
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - output.txt
+            
+
+  print_output_file:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: "print imported info"
+          command: "cat  ~/output.txt"
+
+workflows:
+  say-hello-workflow:
+    jobs:
+      - save_hello_world_output
+      - print_output_file:
+          requires: [save_hello_world_output]
