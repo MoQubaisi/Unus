@@ -1,7 +1,7 @@
 version: 2.1
 
 commands:
-  fuck-you:
+  print_pipeline_id:
     description: "A very simple command to suck my dick"
     parameters:
       to:
@@ -21,7 +21,7 @@ jobs:
           name: "Say hello"
           command: "echo Hello"
       - fuck-you:
-          to: "MOTHER FUCKER"
+          to: $CIRCLE_WORKFLOW_ID
 
 workflows:
   say-hello-workflow:
