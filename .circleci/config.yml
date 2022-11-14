@@ -6,7 +6,6 @@ commands:
     parameters:
       to:
         type: string
-        default: "fuck you"
     steps:
       - run: echo << parameters.to >>
 
@@ -21,7 +20,7 @@ jobs:
           name: "Say hello"
           command: "echo Hello"
       - print_pipeline_id:
-          to: $CIRCLE_WORKFLOW_ID
+          to: <<pipeline.id>>
 
 workflows:
   say-hello-workflow:
