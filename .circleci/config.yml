@@ -20,7 +20,12 @@ jobs:
           name: "Say hello"
           command: "echo Hello"
       - print_pipeline_id:
-          to: <<pipeline.id>>
+          to: <<pipeline.shit>>
+      - run:
+          name: "fail alert"
+          command: "echo You have fuckin failed"
+          when: on_fail
+
 
 workflows:
   say-hello-workflow:
