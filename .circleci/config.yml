@@ -20,7 +20,8 @@ jobs:
           name: "Say hello"
           command: "echo Hello"
       - print_pipeline_id:
-          to: <<pipeline.shit>>
+          to: <<pipeline.to>>
+      - run: "return 1"
       - run:
           name: "fail alert"
           command: "echo You have fuckin failed"
