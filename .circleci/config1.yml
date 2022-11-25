@@ -16,9 +16,16 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
+      - run:
+          name: "Say hello"
+          command: "echo Hello"
       - print_pipeline_id:
-          to: ${CIRCLE_WORKFLOW_ID:0:5}
-
+          to: "fuck me"
+      - run: "return 1"
+      - run:
+          name: "fail alert"
+          command: "echo You have fuckin failed"
+          when: on_fail
 
 
 workflows:
